@@ -17,13 +17,6 @@ namespace AutofacTests
             customConfiguration?.Invoke(builder);
             return builder.Build();
         }
-        private ContainerBuilder CreateContainerBuilder()
-        {
-            var builder = new ContainerBuilder();
-            builder.RegisterType<NestedService>().As<INestedService>().PropertiesAutowired();
-            builder.RegisterType<Service>().As<IService>().PropertiesAutowired();
-            return builder;
-        }
 
         [TestMethod]
         public void PropertyInjectedServiceShouldNotBeNull()
